@@ -5,7 +5,7 @@ import MainButton from "./components/MainButton";
 function App() {
   return (
     <div className="App">
-      <GlobalStyles/>
+      <GlobalStyles></GlobalStyles>
       <MainButton/>
     </div>
   );
