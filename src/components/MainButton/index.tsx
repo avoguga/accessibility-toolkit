@@ -1,24 +1,39 @@
-import React, { useState } from "react";
-import { Container, Animation, Button } from "./styles";
+import React from "react";
+import styled from "styled-components";
+import { Container } from "./styles";
 
-const MainButton: React.FC = () => {
-    const [move, setMove] = useState(false);
+interface Props {
+  click(): void;
+  className: string;
+}
 
-    const animate = () => {
-      // Component begins to move
-      setMove(true);
+const MainButton: React.FC<Props> = ({ click, className }) => {
   
-      // Compoent stops to move after 2 seconds
-      setTimeout(() => setMove(false), 2000);
-    };
-
   return (
-    <Container>
-        <Animation>
-            <Button onClick={animate} className={move ? `move` : ``} />
-        </Animation>
-    </Container>
+    <Animation>
+      <Container onClick={click} className={className} />
+    </Animation>
   );
 };
+
+export const Animation = styled.div`
+  div.move {
+    animation: move 1s;
+  }
+  @keyframes move {
+    0% {
+      right: 0px;
+      opacity: 0;
+    }
+    25% {
+      right: 200px;
+      opacity: 1;
+    }
+    0% {
+      right: 0px;
+      opacity: 0;
+    }
+  }
+`;
 
 export default MainButton;

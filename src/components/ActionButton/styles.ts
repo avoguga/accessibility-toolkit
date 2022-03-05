@@ -1,4 +1,3 @@
-import React, { ImgHTMLAttributes } from "react";
 import styled from "styled-components";
 import handtalk from "../../assets/handtalk.png";
 

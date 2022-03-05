@@ -1,12 +1,13 @@
-import React from "react";
+import Toolkit from "./components/Toolkit";
 
-import GlobalStyles from "./styles/global";
-import MainButton from "./components/MainButton";
 function App() {
+ 
   return (
     <div className="App">
-      <GlobalStyles></GlobalStyles>
-      <MainButton/>
+        <div>
+          <h1>HI I'M AN APP TEXT</h1>
+        </div>
+        <Toolkit/>
     </div>
   );
 }
