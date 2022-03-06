@@ -3,11 +3,11 @@ import { useSpeechSynthesis } from "react-speech-kit";
 
 import increaseImg from "../../assets/aumentar-o-volume.png";
 import highlightLinkImg from "../../assets/aumentar-o-volume.png";
+import sound from "../../assets/caixas-de-som.png";
+
 
 import MainButton from "../MainButton";
-import IncreaseButton from "../ActionButton";
-import HighlightButton from "../ActionButton";
-import AnotherButton from "../ActionButton";
+import Button from "../ActionButton";
 
 import { Container, Content } from "./styles";
 
@@ -20,14 +20,14 @@ const Toolkit: React.FC = () => {
     setTimeout(() => setMove(false), 2000);
   };
 
-  const increaseFontSize = (element: any) => {
+  const increaseFontSize = (element: HTMLElement) => {
     // Increase font size in 20%
     element.style.fontSize !== `${120}%`
       ? (element.style.fontSize = `${120}%`)
       : (element.style.fontSize = `${100}%`);
   };
 
-  const increaseLetterSpacing = (element: any) => {
+  const increaseLetterSpacing = (element: HTMLElement) => {
     // Increase font size in 20%
     element.style.letterSpacing !== `${2}px`
       ? (element.style.letterSpacing = `${2}px`)
@@ -35,11 +35,9 @@ const Toolkit: React.FC = () => {
   };
 
   // Get previus value of background color
-  const [highlightButton, setHighlightButton] = useState<any>();
 
   const highlightLinks = (element: any) => {
     // Highlight links    
-    setHighlightButton(document.querySelector('a'))
 
     const highlight = () => {
       element.style.backgroundColor !== "#fdf2a3"
@@ -50,22 +48,31 @@ const Toolkit: React.FC = () => {
 
   };
 
+  const { speak } = useSpeechSynthesis();
+  
+
   return (
     <Container>
       <Content>
-        <IncreaseButton
+        <Button
           click={() => increaseFontSize(document.body)}
           image={increaseImg}
           text="Aumentar texto"
         />
-        <HighlightButton
+        <Button
           click={() => highlightLinks(document.querySelector("a"))}
           image={highlightLinkImg}
           text="Highlight Links"
         />
-        <AnotherButton
+        <Button
           click={() => increaseLetterSpacing(document.body)}
-          text="Letra"
+          text="Letter spacing"
+        />
+
+        <Button 
+          click={() => speak({ text: 'Hello React Js' })}
+          image={sound}
+          text="Leaasdasdtra"
         />
       </Content>
       <MainButton click={animate} className={move ? `move` : ``} />
