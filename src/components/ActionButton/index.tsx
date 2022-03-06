@@ -1,14 +1,16 @@
 import React from "react";
-import { Container } from "./styles";
+import { Container, MyIcon } from "./styles";
 
 interface Props {
   click(): void;
+  image?: string;
 }
 
-const ActionButton: React.FC<Props> = ({ click }) => {
-  
+const ActionButton: React.FC<Props> = ({ click, image }) => {
   return (
-      <Container onClick={click} />
+    <Container onClick={click}>
+      <MyIcon src={image}/>
+    </Container>
   );
 };
 

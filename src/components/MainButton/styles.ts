@@ -8,6 +8,6 @@ export const Container = styled.div`
   border: none;
   background-color: transparent;
   background-size: contain;
-  width: 50px;
-  height: 50px;
+  width: 35px;
+  height: 35px;
 `;

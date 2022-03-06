@@ -9,4 +9,7 @@ export const Content = styled.div`
   width: 50px;
   height: 200px;
   background-color: red;
+
+  display: flex;
+  flex-direction: column;
 `;
