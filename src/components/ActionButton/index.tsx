@@ -10,9 +10,9 @@ interface Props {
 
 const ActionButton: React.FC<Props> = ({ click, image, text, onMouseOver }) => {
   return (
-    <Container onClick={click} onMouseOver={onMouseOver}>
+    <Container >
       <p>{text}</p>
-      <MyIcon src={image}/>
+      <MyIcon src={image} onClick={click} onMouseOver={onMouseOver}/>
     </Container>
   );
 };

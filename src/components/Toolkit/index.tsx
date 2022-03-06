@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useSpeechSynthesis } from "react-speech-kit";
 
-import increaseImg from "../../assets/aumentar-o-volume.png";
-import highlightLinkImg from "../../assets/aumentar-o-volume.png";
+import increaseImg from "../../assets/texto.png";
+import wordSpacing from "../../assets/duas-flechas.png";
 import sound from "../../assets/caixas-de-som.png";
 
 import MainButton from "../MainButton";
@@ -29,43 +29,48 @@ const Toolkit: React.FC = () => {
       : (element.style.fontSize = `${100}%`);
   };
 
-  const increaseLetterSpacing = (element: HTMLElement) => {
+  const increaseWordSpacing = (element: HTMLElement) => {
     // Increase font size in 20%
-    element.style.letterSpacing !== `${2}px`
-      ? (element.style.letterSpacing = `${2}px`)
-      : (element.style.letterSpacing = ``);
+    element.style.wordSpacing !== `${5}px`
+      ? (element.style.wordSpacing = `${5}px`)
+      : (element.style.wordSpacing = ``);
   };
 
   // Get previus value of background color
 
-  const highlightLinks = (element: any) => {
+  //const highlightLinks = (element: any) => {
     // Highlight links
 
-    const highlight = () => {
-      element.style.backgroundColor !== "#fdf2a3"
-        ? (element.style.backgroundColor = "#fdf2a3")
-        : (element.style.backgroundColor = "");
-    };
-  };
+   // const highlight = () => {
+    //  element.style.backgroundColor !== "#fdf2a3"
+    //    ? (element.style.backgroundColor = "#fdf2a3")
+     //   : (element.style.backgroundColor = "");
+  //  };
+  //};
 
   // Speech
 
   const selectedText = window.getSelection();
+
+  const [textSelected, setTextSelected] = useState<any>(selectedText);
+
+  // Getting mouse actions to verify that text has been selected
+  document.addEventListener(
+    "selectionchange" ,
+    () => {
+      setTimeout(() => {
+        setTextSelected(selectedText?.toString());
+      }, 1000);
+    }
+  );
+
   useEffect(() => {
     if (textToBeSpeeched) {
-      if (selectedText) {
-        document.addEventListener(
-          "mousedown" && "selectionchange" && "mouseup",
-          () => {
-            setTimeout(() => {
-              textToSpeech();
-              console.log(selectedText?.toString());
-            }, 1000);
-          }
-        );
-      } else console.log("Error");
+      if (textSelected) {
+        textToSpeech();
+      } else console.log("Button inactive");
     }
-  }, [selectedText, textToBeSpeeched]);
+  }, [textSelected]);
 
   const textToSpeech = () => {
     // Get selecioned text
@@ -82,15 +87,10 @@ const Toolkit: React.FC = () => {
           text="Aumentar texto"
         />
         <Button
-          click={() => highlightLinks(document.querySelector("a"))}
-          image={highlightLinkImg}
-          text="Highlight Links"
+          click={() => increaseWordSpacing(document.body)}
+          image={wordSpacing}
+          text="Espaçamento entre palavras"
         />
-        <Button
-          click={() => increaseLetterSpacing(document.body)}
-          text="Espaçamento"
-        />
-
         <Button
           click={() => setTextToBeSpeeched(!textToBeSpeeched)}
           image={sound}
