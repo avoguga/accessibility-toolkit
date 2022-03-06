@@ -1,14 +1,14 @@
 import React from "react";
 import { Container, MyIcon } from "./styles";
 
-interface Props {
+interface IProps {
   click?(): void;
   onMouseOver?(): void;
   image?: string;
   text?: string;
 }
 
-const ActionButton: React.FC<Props> = ({ click, image, text, onMouseOver }) => {
+const ActionButton: React.FC<IProps> = ({ click, image, text, onMouseOver }) => {
   return (
     <Container >
       <p>{text}</p>

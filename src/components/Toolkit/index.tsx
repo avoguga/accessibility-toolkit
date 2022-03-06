@@ -4,22 +4,28 @@ import { useSpeechSynthesis } from "react-speech-kit";
 import increaseImg from "../../assets/texto.png";
 import wordSpacing from "../../assets/duas-flechas.png";
 import sound from "../../assets/caixas-de-som.png";
+import close from "../../assets/cross.png";
 
 import MainButton from "../MainButton";
 import Button from "../ActionButton";
+import { Animation } from "../MainButton";
 
 import { Container, Content } from "./styles";
 
 const Toolkit: React.FC = () => {
   const { speak } = useSpeechSynthesis();
   const [move, setMove] = useState(false);
-  const [textToBeSpeeched, setTextToBeSpeeched] = useState<any>(false);
+  const [textToBeSpeeched, setTextToBeSpeeched] = useState(false);
+  const [isContainerVisible, setIsContainerVisible] = useState(false);
 
-  const animate = () => {
+  const animateMainButton = () => {
     // Component begins to move
     setMove(true);
     // Compoent stops to move after 2 seconds
     setTimeout(() => setMove(false), 2000);
+
+    // A wild content appears!
+    setTimeout(() => setIsContainerVisible(true), 200);
   };
 
   const increaseFontSize = (element: HTMLElement) => {
@@ -36,18 +42,6 @@ const Toolkit: React.FC = () => {
       : (element.style.wordSpacing = ``);
   };
 
-  // Get previus value of background color
-
-  //const highlightLinks = (element: any) => {
-    // Highlight links
-
-   // const highlight = () => {
-    //  element.style.backgroundColor !== "#fdf2a3"
-    //    ? (element.style.backgroundColor = "#fdf2a3")
-     //   : (element.style.backgroundColor = "");
-  //  };
-  //};
-
   // Speech
 
   const selectedText = window.getSelection();
@@ -55,14 +49,11 @@ const Toolkit: React.FC = () => {
   const [textSelected, setTextSelected] = useState<any>(selectedText);
 
   // Getting mouse actions to verify that text has been selected
-  document.addEventListener(
-    "selectionchange" ,
-    () => {
-      setTimeout(() => {
-        setTextSelected(selectedText?.toString());
-      }, 1000);
-    }
-  );
+  document.addEventListener("selectionchange", () => {
+    setTimeout(() => {
+      setTextSelected(selectedText?.toString());
+    }, 1000);
+  });
 
   useEffect(() => {
     if (textToBeSpeeched) {
@@ -80,24 +71,33 @@ const Toolkit: React.FC = () => {
 
   return (
     <Container>
-      <Content>
-        <Button
-          click={() => increaseFontSize(document.body)}
-          image={increaseImg}
-          text="Aumentar texto"
-        />
-        <Button
-          click={() => increaseWordSpacing(document.body)}
-          image={wordSpacing}
-          text="Espaçamento entre palavras"
-        />
-        <Button
-          click={() => setTextToBeSpeeched(!textToBeSpeeched)}
-          image={sound}
-          text="Leitura por voz"
-        />
-      </Content>
-      <MainButton click={animate} className={move ? `move` : ``} />
+      {isContainerVisible ? (
+        <Animation>
+          <Content className={move ? `move` : ``}>
+            <Button
+              image={close}
+              click={() => setIsContainerVisible(false)}
+              text="Handtalk toolkit"
+            ></Button>
+
+            <Button
+              click={() => increaseFontSize(document.body)}
+              image={increaseImg}
+              text="Aumentar texto"
+            />
+            <Button
+              click={() => increaseWordSpacing(document.body)}
+              image={wordSpacing}
+              text="Espaçamento entre palavras"
+            />
+            <Button
+              click={() => setTextToBeSpeeched(!textToBeSpeeched)}
+              image={sound}
+              text="Leitura por voz"
+            />
+          </Content>
+        </Animation>
+      ) : <MainButton click={animateMainButton} className={move ? `move` : ``} />}
     </Container>
   );
 };

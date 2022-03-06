@@ -2,12 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import { Container } from "./styles";
 
-interface Props {
+interface IProps {
   click(): void;
   className: string;
 }
 
-const MainButton: React.FC<Props> = ({ click, className }) => {
+const MainButton: React.FC<IProps> = ({ click, className }) => {
   
   return (
     <Animation>
@@ -22,15 +22,6 @@ export const Animation = styled.div`
   }
   @keyframes move {
     0% {
-      right: 0px;
-      opacity: 0;
-    }
-    25% {
-      right: 200px;
-      opacity: 1;
-    }
-    0% {
-      right: 0px;
       opacity: 0;
     }
   }

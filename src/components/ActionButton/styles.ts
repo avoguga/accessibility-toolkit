@@ -12,6 +12,7 @@ export const Container = styled.div`
     margin-left: 5px;
     font-weight: bold;
   }
+  color: white;
 `;
 
 export const MyIcon = styled.img`
