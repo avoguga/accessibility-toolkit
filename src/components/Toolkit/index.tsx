@@ -1,10 +1,9 @@
-import React, { useState, useRef, useCallback, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useSpeechSynthesis } from "react-speech-kit";
 
 import increaseImg from "../../assets/aumentar-o-volume.png";
 import highlightLinkImg from "../../assets/aumentar-o-volume.png";
 import sound from "../../assets/caixas-de-som.png";
-
 
 import MainButton from "../MainButton";
 import Button from "../ActionButton";
@@ -12,7 +11,10 @@ import Button from "../ActionButton";
 import { Container, Content } from "./styles";
 
 const Toolkit: React.FC = () => {
+  const { speak } = useSpeechSynthesis();
   const [move, setMove] = useState(false);
+  const [textToBeSpeeched, setTextToBeSpeeched] = useState<any>(false);
+
   const animate = () => {
     // Component begins to move
     setMove(true);
@@ -37,19 +39,39 @@ const Toolkit: React.FC = () => {
   // Get previus value of background color
 
   const highlightLinks = (element: any) => {
-    // Highlight links    
+    // Highlight links
 
     const highlight = () => {
       element.style.backgroundColor !== "#fdf2a3"
         ? (element.style.backgroundColor = "#fdf2a3")
         : (element.style.backgroundColor = "");
     };
-    
-
   };
 
-  const { speak } = useSpeechSynthesis();
-  
+  // Speech
+
+  const selectedText = window.getSelection();
+  useEffect(() => {
+    if (textToBeSpeeched) {
+      if (selectedText) {
+        document.addEventListener(
+          "mousedown" && "selectionchange" && "mouseup",
+          () => {
+            setTimeout(() => {
+              textToSpeech();
+              console.log(selectedText?.toString());
+            }, 1000);
+          }
+        );
+      } else console.log("Error");
+    }
+  }, [selectedText, textToBeSpeeched]);
+
+  const textToSpeech = () => {
+    // Get selecioned text
+    const selRange = selectedText?.toString();
+    speak({ text: selRange });
+  };
 
   return (
     <Container>
@@ -66,13 +88,13 @@ const Toolkit: React.FC = () => {
         />
         <Button
           click={() => increaseLetterSpacing(document.body)}
-          text="Letter spacing"
+          text="Espaçamento"
         />
 
-        <Button 
-          click={() => speak({ text: 'Hello React Js' })}
+        <Button
+          click={() => setTextToBeSpeeched(!textToBeSpeeched)}
           image={sound}
-          text="Leaasdasdtra"
+          text="Leitura por voz"
         />
       </Content>
       <MainButton click={animate} className={move ? `move` : ``} />
