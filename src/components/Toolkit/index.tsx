@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
-import GlobalStyles from "../../styles/global";
+import React, { useState, useRef, useCallback, useEffect } from "react";
+import { useSpeechSynthesis } from "react-speech-kit";
+
 import increaseImg from "../../assets/aumentar-o-volume.png";
 import highlightLinkImg from "../../assets/aumentar-o-volume.png";
 
@@ -19,20 +20,35 @@ const Toolkit: React.FC = () => {
     setTimeout(() => setMove(false), 2000);
   };
 
-  function increaseFontSize(element: any) {
+  const increaseFontSize = (element: any) => {
     // Increase font size in 20%
     element.style.fontSize !== `${120}%`
       ? (element.style.fontSize = `${120}%`)
       : (element.style.fontSize = `${100}%`);
-  }
+  };
 
-  function highlightLinks(element: any) {
-    // Highlight links
-    console.log(document.querySelector('a')?.style.backgroundColor)
-    element.style.backgroundColor !== "#fdf2a3"
-      ? (element.style.backgroundColor = "#fdf2a3")
-      : (element.style.backgroundColor = "#fdf2a3");
-  }
+  const increaseLetterSpacing = (element: any) => {
+    // Increase font size in 20%
+    element.style.letterSpacing !== `${2}px`
+      ? (element.style.letterSpacing = `${2}px`)
+      : (element.style.letterSpacing = ``);
+  };
+
+  // Get previus value of background color
+  const [highlightButton, setHighlightButton] = useState<any>();
+
+  const highlightLinks = (element: any) => {
+    // Highlight links    
+    setHighlightButton(document.querySelector('a'))
+
+    const highlight = () => {
+      element.style.backgroundColor !== "#fdf2a3"
+        ? (element.style.backgroundColor = "#fdf2a3")
+        : (element.style.backgroundColor = "");
+    };
+    
+
+  };
 
   return (
     <Container>
@@ -48,8 +64,8 @@ const Toolkit: React.FC = () => {
           text="Highlight Links"
         />
         <AnotherButton
-          click={() => increaseFontSize(document.body)}
-          text="Fazer outra coisa"
+          click={() => increaseLetterSpacing(document.body)}
+          text="Letra"
         />
       </Content>
       <MainButton click={animate} className={move ? `move` : ``} />
