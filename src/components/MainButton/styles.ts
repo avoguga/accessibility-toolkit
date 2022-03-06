@@ -1,4 +1,3 @@
-import React, { ImgHTMLAttributes } from "react";
 import styled from "styled-components";
 import handtalk from "../../assets/handtalk.png";
 
@@ -10,4 +9,8 @@ export const Container = styled.div`
   background-size: contain;
   width: 35px;
   height: 35px;
+
+  position: fixed;
+  right: 0px;
+  bottom: 30%;
 `;
