@@ -20,4 +20,5 @@ export const MyIcon = styled.img`
   height: 30px;
   background-size: contain;
   cursor: pointer;
+  margin-right: 10px;
 `;
