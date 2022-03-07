@@ -66,9 +66,7 @@ const Toolkit: React.FC = () => {
         <Animation>
           <Content className={move ? `move` : ``}>
             <Button
-              image={
-                "https://img.icons8.com/ios-filled/50/000000/accessibility2.png"
-              }
+              image={"https://img.icons8.com/ios-filled/50/000000/cancel.png"}
               click={() => setIsContainerVisible(false)}
               text="Handtalk toolkit"
             ></Button>
