@@ -37,12 +37,14 @@ Para realizar a leitura de algum conteúdo por voz, o usuário primeiro deve ape
 
 ## Uso via CDN
 
-Para usar a aplicação via CDN em alguma aplicação própria basta inserir o script abaixo dentro do body da sua aplicação.
+Para usar a aplicação via CDN em alguma aplicação própria basta inserir o script abaixo dentro do index.html da sua aplicação.
 
 ```
-  <div id="toolkit"></div>
   <script
       defer="defer"
       src="https://firebasestorage.googleapis.com/v0/b/handtalk-toolkit.appspot.com/o/toolkit.js?alt=media&token=4193a73d-3ca7-433c-9a37-8b82a5a605e8">
   </script>
 ```
+E após isso você deve invocar o script desta forma:
+
+`<div id="toolkit"></div>`
