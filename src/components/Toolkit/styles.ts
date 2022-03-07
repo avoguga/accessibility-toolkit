@@ -4,6 +4,8 @@ export const Container = styled.div`
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 18px;
   word-spacing: 0px;
+
+  z-index: 1;
 `;
 
 export const Content = styled.div`
