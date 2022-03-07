@@ -23,29 +23,28 @@ const Toolkit: React.FC = () => {
     setTimeout(() => setIsContainerVisible(true), 200);
   };
 
+  // Increase font size in 20%
   const increaseFontSize = (element: HTMLElement) => {
-    // Increase font size in 20%
     element.style.fontSize !== `${120}%`
       ? (element.style.fontSize = `${120}%`)
       : (element.style.fontSize = `${100}%`);
   };
 
+    // Increase word spacing in 5px
   const increaseWordSpacing = (element: HTMLElement) => {
-    // Increase font size in 20%
     element.style.wordSpacing !== `${5}px`
       ? (element.style.wordSpacing = `${5}px`)
       : (element.style.wordSpacing = ``);
   };
 
   // Speech
-
   const selectedText = window.getSelection();
-
   const [textSelected, setTextSelected] = useState<any>(selectedText);
 
-  // Getting mouse actions to verify that text has been selected
 
   useEffect(() => {
+  // Getting mouse actions to verify that text has been selected
+
     document.addEventListener("selectionchange", () => {
       setTimeout(() => {
         setTextSelected(selectedText?.toString());
@@ -60,6 +59,8 @@ const Toolkit: React.FC = () => {
     speak({ text: selRange });
   };
 
+  // Finish Speech function
+
   return (
     <Container>
       {isContainerVisible ? (
@@ -68,7 +69,7 @@ const Toolkit: React.FC = () => {
             <div>
               <h3>Handtalk toolkit</h3>
               <Button
-                image={"https://img.icons8.com/ios-filled/50/000000/cancel.png"}
+                image={"https://img.icons8.com/ios-filled/50/ffffff/cancel.png"}
                 click={() => setIsContainerVisible(false)}
               ></Button>
             </div>

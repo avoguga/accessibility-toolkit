@@ -16,6 +16,8 @@ const MainButton: React.FC<IProps> = ({ click, className }) => {
   );
 };
 
+// Accessibility button animation
+
 export const Animation = styled.div`
   div.move {
     animation: move 1s;
