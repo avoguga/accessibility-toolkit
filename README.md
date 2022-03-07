@@ -29,7 +29,7 @@ O toolkit apresenta 3 funcionalidades:
 
 Todas as funcionalidades podem ser ativadas e desativadas com um clique sobre o nome ou o icon apresentado.
 
-### Fazer a leitura do conteúdo por voz
+### Fazer a leitura do conteúdo por voz :loud_sound:
 
 Para realizar a leitura de algum conteúdo por voz, o usuário primeiro deve apertar no botão Leitura por voz, e após isso selecionar o texto a ser lido. Para desativar a funcionalidade basta clicar novamente sobre o botão.
 
