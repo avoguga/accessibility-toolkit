@@ -65,11 +65,13 @@ const Toolkit: React.FC = () => {
       {isContainerVisible ? (
         <Animation>
           <Content className={move ? `move` : ``}>
-            <Button
-              image={"https://img.icons8.com/ios-filled/50/000000/cancel.png"}
-              click={() => setIsContainerVisible(false)}
-              text="Handtalk toolkit"
-            ></Button>
+            <div>
+              <h3>Handtalk toolkit</h3>
+              <Button
+                image={"https://img.icons8.com/ios-filled/50/000000/cancel.png"}
+                click={() => setIsContainerVisible(false)}
+              ></Button>
+            </div>
             <Button
               click={() => increaseFontSize(document.body)}
               image={

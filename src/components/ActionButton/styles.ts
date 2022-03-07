@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -17,7 +16,6 @@ export const Container = styled.div`
   }
   color: #404040;
   cursor: pointer;
-  background-color: white;
 `;
 
 export const MyIcon = styled.img`

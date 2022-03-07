@@ -21,4 +21,26 @@ export const Content = styled.div`
   position: fixed;
   right: 1px;
   bottom: 30%;
+
+  div:nth-child(1) {
+    height: 50px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+
+    width: 280px;
+    h3 {
+      position: relative;
+      color: #fff;
+      top: 10px;
+      left: 20px;
+    }
+    background-color: #f36e20;
+    div {
+      position: relative;
+      left: 200px;
+      bottom: 50px;
+      z-index: 1;
+      width: 20px;
+    }
+  }
 `;

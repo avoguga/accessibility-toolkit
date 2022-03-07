@@ -10,9 +10,9 @@ interface IProps {
 
 const ActionButton: React.FC<IProps> = ({ click, image, text, onMouseOver }) => {
   return (
-    <Container >
+    <Container onClick={click}>
       <p>{text}</p>
-      <MyIcon src={image} onClick={click} onMouseOver={onMouseOver}/>
+      <MyIcon src={image} />
     </Container>
   );
 };
