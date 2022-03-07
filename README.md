@@ -11,11 +11,11 @@ Toolkit desenvolvido com React e Typescript
 
 No diretorio da aplicação use:
 
-### `npm install`
+#### `npm install`
 
 E para iniciar a aplicação:
 
-### `npm start`
+#### `npm start`
 
 ## Interface do toolkit:
 
