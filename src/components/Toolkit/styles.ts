@@ -4,11 +4,11 @@ export const Container = styled.div`
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 18px;
   word-spacing: 0px;
-
-  z-index: 1;
+  z-index: 100000;
 `;
 
 export const Content = styled.div`
+  z-index: 100000;
   width: 280px;
   height: 280px;
   background-color: #fff;
@@ -39,9 +39,8 @@ export const Content = styled.div`
     background-color: #f36e20;
     div {
       position: relative;
-      left: 200px;
-      bottom: 50px;
-      z-index: 1;
+      left: 205px;
+      bottom: 52px;
       width: 20px;
     }
   }
