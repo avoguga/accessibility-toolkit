@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 `;
 
 export const Content = styled.div`
   width: 260px;
   height: 250px;
-  background-color: #F36E20;
+  background-color: #f36e20;
   border-radius: 20px;
   border-style: solid;
   border-width: 5px;
