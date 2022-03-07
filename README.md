@@ -45,7 +45,7 @@ Para usar a aplicação via CDN em alguma aplicação própria basta inserir o s
   <div id="toolkit"></div>
   <script
       defer="defer"
-      src="https://firebasestorage.googleapis.com/v0/b/handtalk-toolkit.appspot.com/o/toolkit.js?alt=media&token=b5427c59-9d4c-4648-a402-9246bd8f481c">
+      src="https://firebasestorage.googleapis.com/v0/b/handtalk-toolkit.appspot.com/o/toolkit.js?alt=media&token=4193a73d-3ca7-433c-9a37-8b82a5a605e8">
   </script>
 </body>
 ```
