@@ -1,4 +1,4 @@
-# Handtalk Accessibility Toolkit
+# Accessibility Toolkit
 
 Toolkit desenvolvido com React e Typescript
 
