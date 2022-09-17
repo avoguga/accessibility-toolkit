@@ -67,7 +67,7 @@ const Toolkit: React.FC = () => {
         <Animation>
           <Content className={move ? `move` : ``}>
             <div>
-              <h3>Handtalk toolkit</h3>
+              <h3>Gugas Accessibility Toolkit</h3>
               <Button
                 image={"https://img.icons8.com/ios-filled/50/ffffff/cancel.png"}
                 click={() => setIsContainerVisible(false)}

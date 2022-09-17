@@ -9,13 +9,13 @@ export const Container = styled.div`
 
 export const Content = styled.div`
   z-index: 100000;
-  width: 280px;
+  width: 300px;
   height: 280px;
   background-color: #fff;
   border-radius: 20px;
   border-style: solid;
   border-width: 5px;
-  border-color: #f36e20;
+  border-color: #003459;
 
   display: flex;
   flex-direction: column;
@@ -26,20 +26,21 @@ export const Content = styled.div`
 
   div:nth-child(1) {
     height: 50px;
-    border-top-right-radius: 20px;
-    border-top-left-radius: 20px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
 
-    width: 280px;
+    width: 300px;
     h3 {
       position: relative;
       color: #fff;
       top: 10px;
       left: 20px;
+      font-size: 18px;
     }
-    background-color: #f36e20;
+    background-color: #003459;
     div {
       position: relative;
-      left: 205px;
+      left: 235px;
       bottom: 52px;
       width: 20px;
     }
