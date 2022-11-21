@@ -1,6 +1,6 @@
 {
-  "name": "handtalk-accessibility-toolkit",
-  "version": "0.1.0",
+  "name": "accessibility-toolkit",
+  "version": "1.0.0",
   "private": true,
   "homepage": ".",
   "dependencies": {
