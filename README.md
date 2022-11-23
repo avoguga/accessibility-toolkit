@@ -19,7 +19,7 @@ E para iniciar a aplicação:
 
 ## Interface do toolkit:
 
-![Exemplo - Toolkit](https://firebasestorage.googleapis.com/v0/b/handtalk-toolkit.appspot.com/o/Captura%20de%20tela%202022-03-07%20021808.png?alt=media&token=3b2a6cc6-b967-4f4e-bcc8-9e6fccc05db6)
+![Exemplo - Toolkit](https://firebasestorage.googleapis.com/v0/b/handtalk-toolkit.appspot.com/o/WhatsApp%20Image%202022-11-22%20at%2023.55.37.jpeg?alt=media&token=1bede10c-676d-4ff7-a35e-e6325fd0edc8)
 
 O toolkit apresenta 3 funcionalidades:
 
