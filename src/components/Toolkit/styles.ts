@@ -5,6 +5,7 @@ export const Container = styled.div`
   font-size: 18px;
   word-spacing: 0px;
   z-index: 100000;
+  position: absolute;
 `;
 
 export const Content = styled.div`

@@ -24,7 +24,7 @@ export const Animation = styled.div`
   }
   @keyframes move {
     0% {
-      opacity: 0;
+      display: none;
     }
   }
 `;
