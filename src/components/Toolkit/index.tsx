@@ -6,6 +6,7 @@ import Button from "../ActionButton";
 import { Animation } from "../MainButton";
 
 import { Container, Content } from "./styles";
+import { addClickListenerToWindow } from "../../services/getTextData";
 
 const Toolkit: React.FC = () => {
   const { speak } = useSpeechSynthesis();
@@ -59,6 +60,17 @@ const Toolkit: React.FC = () => {
     speak({ text: selRange });
   };
 
+  addClickListenerToWindow(window);
+
+  const handleSeteTextToBeSpeeched = () => {
+    setTextToBeSpeeched(!textToBeSpeeched);
+    if (textToBeSpeeched) {
+      speak({ text: "Leitura por voz desativada" });
+    } else { 
+      speak({ text: "Leitura por voz ativada" });
+    }
+  };
+
   // Finish Speech function
 
   return (
@@ -88,7 +100,7 @@ const Toolkit: React.FC = () => {
               text="Espaçamento entre palavras"
             />
             <Button
-              click={() => setTextToBeSpeeched(!textToBeSpeeched)}
+              click={() => handleSeteTextToBeSpeeched()}
               image={
                 "https://img.icons8.com/glyph-neue/64/000000/room-sound.png"
               }
